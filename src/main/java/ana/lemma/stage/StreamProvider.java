@@ -1,5 +1,6 @@
 package ana.lemma.stage;
 
+import ana.lemma.contracts.Cancellation;
 import ana.lemma.contracts.Language;
 import ana.lemma.contracts.Recipe;
 import ana.lemma.guard.SafeConsumer;
@@ -12,12 +13,13 @@ public class StreamProvider<T> {
     }
 
     // Cold Stream
-    public void subscribe(Language<T> consumer) {
+    public Cancellation<T> subscribe(Language<T> consumer) {
         SafeConsumer<T> safeConsumer = new SafeConsumer<>(consumer);
         try {
             recipe.run(safeConsumer);
         } catch (final Exception e) {
             safeConsumer.error(e);
         }
+        return safeConsumer;
     }
 }

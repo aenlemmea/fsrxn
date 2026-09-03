@@ -18,7 +18,7 @@ Mostly for learning.
 #### Angular Side:
 
 - [x] Observer/Observable constructs
-- [ ] Cancellation & Teardown
+- [x] Cancellation & Teardown
 - [ ] Pipeable Operators
 - [ ] Subject/BehaviourSubject (Hot Multicasting & State)
 - [ ] High Order Operators
